@@ -2,11 +2,6 @@ clearvars
 close all
 clc
 
-<<<<<<< Updated upstream
-a = 2;
-b = 5;
-c = a+b;
-=======
 % setupDroneEnv;
 % tello=getnelloDrone();
 % tello.connect();
@@ -20,8 +15,7 @@ if txt = 'Y'
         useRealTime = false;
     end
     tello = telloSimulator(useRealTime);
-    FD = flappyDrone(tello,viewMode=1,animFrequency=10,useRealTime=true,Ts=0.01);
-    
+    FD =
 
 
 elseif txt = 'N'
@@ -60,4 +54,3 @@ tello.land()
 % 
 %     end
 % end 
->>>>>>> Stashed changes

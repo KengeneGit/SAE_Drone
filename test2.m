@@ -7,7 +7,7 @@ tello=telloSimulator(useRealTime);
  
 FD=flappyDrone(tello,viewMode=2, ...
     animFrequency=10,useRealTime=useRealTime,Ts=0.2); ...
-FD.start(1);
+FD.start(2);
 tello.connect();
  
 fprintf('Take off\n')

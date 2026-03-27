@@ -7,7 +7,7 @@ tello=telloSimulator(useRealTime);
  
 FD=flappyDrone(tello,viewMode=2, ...
     animFrequency=10,useRealTime=useRealTime,Ts=0.2); ...
-FD.start(1);
+FD.start(3);
 tello.connect();
  
 fprintf('Take off\n')
@@ -22,7 +22,7 @@ while FD.isRunning
     pos=double(tello.get_position());
     Z=-pos(4);
    
-    Kp =80; % à ajuster
+    Kp =100; % à ajuster
     e = Zc - Z;
     Uz = Kp * e;
     % Send control to the drone

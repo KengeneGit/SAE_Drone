@@ -2,25 +2,7 @@ clearvars
 close all
 clc
 
-% <<<<<<< HEAD
-% load nonlienarity.mat;
-% 
-% setupDroneEnv;
-% tello=getnelloDrone();
-% tello.connect();
-% tello.takeoff();
-% 
-% Te = 0.2; % période d'échantillonage
-% Vect_Pos = [0];
-% Start = tic;
-% while (FD.isRunning)
-%     if mod(toc(Start),Te) == 0
-%         % Retrieve the current position of the drone
-%         position = tello.getPosition();
-% 
-%     end
-% end 
-% =======
+
 setupDroneEnv;
 tello=getTelloDrone();
 tello.connect();
@@ -31,7 +13,7 @@ if txt1 == 'Y'
     if txt == 'Y'
         useRealTime = true;
     elseif txt == 'N'
-        useRealTime = false;9
+        useRealTime = false;
     end
     tello = telloSimulator(useRealTime);
     FD = flappyDrone(tello,viewMode=1,animFrequency=10,useRealTime=true,Ts=0.01);
@@ -56,30 +38,3 @@ tello.land()
 stopManualControl;
 tello.quit;
 terminate(pyenv)
-
-
-
-
-
-
-
-
-% load nonlienarity.mat;
-
-
-% tello.takeoff();
-
-
-
-
-% Te = 0.2; % période d'échantillonage
-% Vect_Pos = [0];
-% Start = tic;
-% while (FD.isRunning)
-%     if mod(toc(Start),Te) == 0
-%         % Retrieve the current position of the drone
-%         position = tello.getPosition();
-% 
-%     end
-% end 
-% >>>>>>> Eugene

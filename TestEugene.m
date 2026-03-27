@@ -1,7 +1,12 @@
 close all
 clearvars
 clc
+figure;
+startManualControl;
+keypressed = " ";
 
-b = 5;
-a = 1;
-c = a+b;
+while keypressed ~= "space"
+    keypressed=evalin('base','globalKeypressed');
+   drawnow; 
+end
+fprintf("youpiiii");

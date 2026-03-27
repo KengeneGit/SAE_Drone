@@ -2,17 +2,12 @@ clearvars
 close all
 clc
 
-<<<<<<< Updated upstream
-a = 2;
-b = 5;
-c = a+b;
-=======
-% setupDroneEnv;
-% tello=getnelloDrone();
-% tello.connect();
+setupDroneEnv;
+tello=getTelloDrone();
+tello.connect();
 
-txt = input("Lancer le jeu ? Y/N : ","s");
-if txt = 'Y'
+txt1 = input("Lancer le jeu ? Y/N : ","s");
+if txt1 == 'Y'
     txt = input("Utiliser le temps Réel ? Y/N : ","s");
     if txt == 'Y'
         useRealTime = true;
@@ -24,14 +19,22 @@ if txt = 'Y'
     
 
 
-elseif txt = 'N'
+elseif txt1 == 'N'
 tello.takeoff();
+bip(144);
 figure;
 startManualControl;
-keypressed=evalin('base','globalKeypressed');
+keypressed = " ";
+while keypressed ~= "space"
 manu=evalin('base','manu');
+keypressed=evalin('base','globalKeypressed');
 tello.send_rc_control(int8(0+manu.LR), int8(0+manu.FB), int8(Uz+manu.UD),int8(0+manu.Yaw));
+end
+end
 tello.land()
+stopManualControl;
+tello.quit;
+terminate(pyenv)
 
 
 
@@ -39,8 +42,6 @@ tello.land()
 
 
 
-% tello.quit;
-% terminate(pyenv)
 
 % load nonlienarity.mat;
 
@@ -60,4 +61,3 @@ tello.land()
 % 
 %     end
 % end 
->>>>>>> Stashed changes
